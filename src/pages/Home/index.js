@@ -1,8 +1,8 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { View, Text, SafeAreaView, TouchableOpacity, FlatList, Alert } from 'react-native';
+import { View, Text, SafeAreaView, TouchableOpacity, FlatList, Alert, ScrollView } from 'react-native';
 
 import { styles } from './style';
-import { MaterialCommunityIcons , FontAwesome5 } from '@expo/vector-icons';
+import { MaterialCommunityIcons , FontAwesome5, AntDesign } from '@expo/vector-icons';
 import TasksList from '../../components/TasksList';
 import { format, isBefore } from 'date-fns';
 
@@ -126,71 +126,61 @@ export default function Home() {
 
 
  return (
-   <View style={styles.container}>
-      <View style={styles.header}> 
-          
-          
-        <View >
-            <Text style={styles.title}> 
-                TASK HOUSE
-            </Text>
-            <Text style={styles.subtitle}> 
-              Olá, {user.nome} 
-            </Text>
+    <View style={styles.container}>
+      <View style={styles.header}>
+        
+        
+        <View style={styles.titleView}>
+          <View style={styles.contentTitle}>
+              <Text style={styles.title} >Olá,</Text>
+              <Text style={styles.username} > {user.nome}</Text>
+          </View> 
+          <View style={styles.contentTitle}>
+                <Text style={styles.points}>
+                  Seus pontos são {pontos} ptns
+                </Text>
+          </View> 
         </View>
-          
-          
-          <View style={styles.point} >
-            <Text style={styles.title} >PONTOS</Text>
-            <Text style={styles.subtitle}> {pontos} pnts </Text>
-          </View>
+
+        <TouchableOpacity style={styles.userBottom} >
+          <AntDesign name="user" size={34} color="#BA68C8" />
+        </TouchableOpacity>
 
 
       </View>
-
-      
-      <View style={styles.content}>
-          
-          <Text style={styles.titleGeral} >S U M A R I O</Text>
-          
-          <View style={styles.boxBnt}>
-              <View style={{ flexDirection: 'column' }} >
-                  <TouchableOpacity
-                   style={styles.bottom}
-                   onPress={ () => AddTask() }
-                  >
+      <View style={styles.bntView}>
+          <ScrollView 
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          >
+              <TouchableOpacity style={styles.bottom} >
                   <MaterialCommunityIcons name="format-list-checks" size={40} color="#BA86C8" />
-                      <Text style={styles.txtBottom}>T A R E F A S</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.bottom} 
-                  onPress={ () => alert('Em construção') }
-                  >
+                  <Text style={styles.txtBottom}>ADICIONAR TAREFAS</Text>
+
+
+              </TouchableOpacity>  
+
+              <TouchableOpacity style={styles.bottom} >
                   <MaterialCommunityIcons name="cash-plus" size={40} color="#BA68C8" />
-                <Text style={styles.txtBottom}>
-                  D E S P E S A S
-                </Text>
-                  </TouchableOpacity>
-              </View>
-              <TouchableOpacity style={styles.bottom2} onPress={ () => alert('Em construção') } >
-              <MaterialCommunityIcons name="shopping" size={40} color="#BA68C8" />
-                <Text style={styles.txtBottom}>
-                  L I S T A S   D E            C O M P R A S
-                </Text>
-              </TouchableOpacity>
-          </View>
+                  <Text style={styles.txtBottom}>ADICIONAR DESPESAS</Text>
+              </TouchableOpacity>   
 
-          <Text style={styles.titleGeral} >
-            T A R E F A S   D E  H O J E
-          </Text>
+              <TouchableOpacity style={styles.bottom} >
+                  <MaterialCommunityIcons name="shopping" size={40} color="#BA68C8" />
+                  <Text style={styles.txtBottom}>LISTAS DE COMPRAS</Text>
+              </TouchableOpacity>   
+          </ScrollView>
 
-          <FlatList
-            showsVerticalScrollIndicator={false}
-            data={tasks}
-            keyExtractor={(item) => item.id}
-            renderItem={ ({item}) => <TasksList data={item} deleteItem={handleDelete} /> }
-          />
 
       </View>
-   </View>
+      <View style={styles.listView}>
+          <Text style={styles.points} >
+            EM PROGRESSO
+          </Text>
+      </View>
+
+
+
+    </View>
   );
 }

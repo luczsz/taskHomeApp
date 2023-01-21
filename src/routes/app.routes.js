@@ -26,11 +26,11 @@ export default function AppRoutes(){
 
                         borderTopWidth: 0,
 
-                        bottom: 14,
+                        //bottom: 14,
                         left: 14,
                         right: 14,
                         elevation: 0,
-                        borderRadius: 4,
+                        //borderRadius: 4,
                         height: 60,
                                     
                     }
@@ -67,20 +67,7 @@ export default function AppRoutes(){
                 />
 
                 
-                <AppTabs.Screen
-                    name='User'
-                    component={UserCont}
-                    options={{
-                        headerShown: false,
-                        tabBarIcon: ({ color, size, focused}) => {
-                            if(focused){
-                            return <AntDesign name="user" size={24} color="#BA68C8" />
-                        }
-                            return <AntDesign name="user" size={24} color="#DDD" />
-    
-                        }
-                    }}
-                />
+                
                 
 
 

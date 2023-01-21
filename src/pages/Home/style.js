@@ -6,46 +6,76 @@ export const styles = StyleSheet.create({
         backgroundColor: '#131313', 
     },
     header:{
+        height: 130,
         marginTop: 40,
         padding: 14,
         borderWidth: 1,
         borderBottomColor: '#BA68C8',
-        flexDirection: 'row',
+        borderBottomLeftRadius: 12,
+        borderBottomRightRadius: 12,
         alignItems: 'center',
         justifyContent: 'space-between',
+        flexDirection: 'row',
+    },
+    titleView:{
+        flex: 1,
+        //height: 140,
+        //backgroundColor: '#DDD',
+    },
+    contentTitle:{
+        //marginTop: 2,
+        marginBottom: 2,
+        marginStart: 5,
+        //height: 40,
+        //padding: 5,
+        //backgroundColor: 'green',
+        flexDirection: 'row',
     },
     title:{
         color: '#FFF',
-        fontSize: 22,
+        fontSize: 20,
     },
-    titleGeral:{
+    points:{
+        color: '#FFF',
+        fontSize: 15,
+    },
+    username:{
         color: '#FFF',
         fontSize: 22,
-        marginTop: 10,
-        paddingLeft: 18,
+        fontWeight: 'bold',
     },
-    point:{
-        alignItems: 'center'
-    },
-    subtitle:{
-        color: '#FFF',
-        fontSize: 16,
-    },
-    content:{
-        flex: 1,
-    },
-    boxBnt:{
-        flexDirection: 'row',
-        //padding: 14,
+    userBottom:{
+        marginLeft: 8,
+        backgroundColor: '#FFF',
+        width: 50,
+        height: 50,
         alignItems: 'center',
         justifyContent: 'center',
+        borderRadius: 44,
     },
+    bntView:{
+        height: 200,
+        backgroundColor: '#DDD',
+        marginTop: 20,
+        marginStart: 14,
+        marginEnd: 14,
+
+    },
+    listView:{
+        height: 394,
+        backgroundColor: 'red',
+        marginTop: 10,
+        marginStart: 14,
+        marginEnd: 14,
+        paddingStart: 5,
+        paddingEnd: 5,
+
+    },  
     bottom:{
         backgroundColor: '#FFF',
-        width: 200,
-        height: 100,
+        width: 180,
+        height: 180,
         margin: 10,
-        flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 12,
@@ -61,7 +91,7 @@ export const styles = StyleSheet.create({
     },
     txtBottom:{
         margin:12,
-        fontSize: 17,
+        fontSize: 18,
         fontWeight: 'bold',
         color: '#BA68C8',
         textAlign: 'center'
