@@ -21,7 +21,7 @@ export default function AllTasks() {
 
       await firebase.database().ref('casa')
       .child(casa)
-      .orderByChild('casa').equalTo(casa)
+      .orderByChild('status').equalTo('fechado')
       .limitToLast(10)
       .on('value', (snap)=> {
         setTasks([]);
@@ -34,6 +34,7 @@ export default function AllTasks() {
             descript: childItem.val().descript,
             pontos: childItem.val().pontos,
             data: childItem.val().data,
+            status: childItem.val().status,
           };
 
           setTasks(oldArray => [...oldArray, list].reverse());

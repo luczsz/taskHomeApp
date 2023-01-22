@@ -15,6 +15,9 @@ export default function AllTasksList({ data }) {
             <Text style={styles.descriptionTitle} numberOfLines={1}> 
                 Pontos perdidos {data.pontos} pnts.
             </Text>
+            <Text style={styles.descriptionTitle} numberOfLines={1}> 
+                Situação: {data.status}.
+            </Text>
         </View>
         <View style={styles.bottomView}>
             <TouchableOpacity
@@ -22,7 +25,7 @@ export default function AllTasksList({ data }) {
                 activeOpacity={0.9}
                 onPress={ ()=> alert('em teste')}
             >
-                <Feather name="trash" size={34} color="#DDD" />
+                <AntDesign name="closecircleo" size={34} color="#DDD" />
             </TouchableOpacity>
         </View>
 

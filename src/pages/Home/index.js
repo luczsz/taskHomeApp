@@ -35,11 +35,10 @@ export default function Home() {
 
         await firebase.database().ref('casa')
         .child(casa)
-        .orderByChild('data').equalTo(newDate)
+        .orderByChild('status').equalTo('aberto')
         .limitToLast(10)
         .on('value', (snap) => {
           setTasks([]);
-          Semana();
 
           snap.forEach( (childItem) => {
             let list ={
@@ -49,6 +48,7 @@ export default function Home() {
               descript: childItem.val().descript,
               pontos: childItem.val().pontos,
               User: childItem.val().User,
+              status: childItem.val().status,
             };
 
             setTasks(oldArray => [...oldArray, list].reverse());
@@ -92,6 +92,9 @@ export default function Home() {
   function AddFinance(){
     navigation.navigate('AddFinance');
   };
+  function userGo(){
+    navigation.navigate('User');
+  };
 
   async function handleDelete(data){
 
@@ -113,14 +116,18 @@ export default function Home() {
   };
 
   async function deletSucess(data){
-    await firebase.database().ref('casa')
-    .child(casa).child(data.key).remove()
-    .then( async () => {
-      let pontosAtuais = data.pontos + pontos;
-
-      await firebase.database().ref('usuarios').child(uid).child('pontos').set(pontosAtuais)
-      
+    
+    await firebase.database().ref('casa').child(casa)
+    .child(data.key).update({ 
+      status: 'fechado',
     })
+    .then(
+      async () => {
+        let pontosAtuais = data.pontos + pontos;
+
+       await firebase.database().ref('usuarios').child(uid).child('pontos').set(pontosAtuais)
+      }
+    )
   };
 
 
@@ -142,7 +149,10 @@ export default function Home() {
           </View> 
         </View>
 
-        <TouchableOpacity style={styles.userBottom} >
+        <TouchableOpacity 
+        style={styles.userBottom}
+        onPress={ () => userGo()}
+        >
           <AntDesign name="user" size={34} color="#BA68C8" />
         </TouchableOpacity>
 
@@ -153,7 +163,10 @@ export default function Home() {
           horizontal
           showsHorizontalScrollIndicator={false}
           >
-              <TouchableOpacity style={styles.bottom} >
+              <TouchableOpacity 
+              style={styles.bottom}
+              onPress={ () => AddTask() }
+              >
                   <MaterialCommunityIcons name="format-list-checks" size={40} color="#BA86C8" />
                   <Text style={styles.txtBottom}>ADICIONAR TAREFAS</Text>
 
@@ -174,9 +187,12 @@ export default function Home() {
 
       </View>
       <View style={styles.listView}>
-          <Text style={styles.points} >
-            EM PROGRESSO
-          </Text>
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            data={tasks}
+            keyExtractor={(item) => item.id}
+            renderItem={ ({item}) => <TasksList data={item} deleteItem={ handleDelete } />}
+          />
       </View>
 
 

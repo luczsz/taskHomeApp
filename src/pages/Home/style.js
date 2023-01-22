@@ -55,15 +55,15 @@ export const styles = StyleSheet.create({
     },
     bntView:{
         height: 200,
-        backgroundColor: '#DDD',
+        //backgroundColor: '#DDD',
         marginTop: 20,
         marginStart: 14,
         marginEnd: 14,
 
     },
     listView:{
-        height: 394,
-        backgroundColor: 'red',
+        height: 388,
+        //backgroundColor: 'red',
         marginTop: 10,
         marginStart: 14,
         marginEnd: 14,

@@ -25,6 +25,9 @@ export default function TasksList({data, deleteItem}) {
             <Text style={styles.subtitle} numberOfLines={2} >
                  {data.descript}
             </Text>
+            <Text style={styles.subtitle} numberOfLines={2} >
+                 Situação: {data.status}
+            </Text>
         </View>
         <View style={styles.footer} >
             <Text>

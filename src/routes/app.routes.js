@@ -100,6 +100,13 @@ export default function AppRoutes(){
                     headerShown: false,
                 }}
             />
+            <AppStack.Screen
+                name='User'
+                component={UserCont}
+                options={{
+                    headerShown: false,
+                }}
+            />
         </AppStack.Navigator>
 
     );
