@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import { Ionicons, Feather, AntDesign } from '@expo/vector-icons';
+import { Ionicons, MaterialIcons, AntDesign } from '@expo/vector-icons';
 
 import Home from '../pages/Home';
 import AddTask from '../pages/AddTask';
@@ -27,8 +27,6 @@ export default function AppRoutes(){
                         borderTopWidth: 0,
 
                         //bottom: 14,
-                        left: 14,
-                        right: 14,
                         elevation: 0,
                         //borderRadius: 4,
                         height: 60,
@@ -61,6 +59,20 @@ export default function AppRoutes(){
                             return <AntDesign name="book" size={24} color="#BA68C8" />
                         }
                             return <AntDesign name="book" size={24} color="#DDD" />
+    
+                        }
+                    }}
+                />
+                <AppTabs.Screen
+                    name='Finance'
+                    component={Finance}
+                    options={{
+                        headerShown: false,
+                        tabBarIcon: ({ color, size, focused}) => {
+                            if(focused){
+                            return <MaterialIcons name="attach-money" size={24} color="#BA68C8" />
+                        }
+                            return <MaterialIcons name="attach-money" size={24} color="#DDD" />
     
                         }
                     }}

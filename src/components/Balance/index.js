@@ -1,23 +1,23 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-export default function Balance() {
+export default function Balance( { saldo, gasto} ) {
  return (
    <View style={styles.container} >
         
         <View style={styles.item}>
-            <Text style={styles.itemTitle}>Saldo</Text>
+            <Text style={styles.itemTitle}>Entradas</Text>
                 <View style={styles.content}>
                     <Text style={styles.currenceSymbol}>R$</Text>
-                    <Text style={styles.balance}>100,00</Text>
+                    <Text style={styles.balance}> {saldo.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')} </Text>
                 </View>
         </View>
   
         <View style={styles.item}>
-            <Text style={styles.itemTitle}>Gastos</Text>
+            <Text style={styles.itemTitle}>Despesas</Text>
                 <View style={styles.content}>
                     <Text style={styles.currenceSymbol}>R$</Text>
-                    <Text style={styles.expances}>200,00</Text>
+                    <Text style={styles.expances}> {gasto.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')} </Text>
                 </View>
         </View>
         
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
       justifyContent: 'space-between',
       paddingStart: 18,
       paddingEnd: 18,
-      marginTop: -24,
+      marginTop: -45,
       marginStart: 14,
       marginEnd: 14,
       borderRadius: 4,

@@ -173,7 +173,10 @@ export default function Home() {
 
               </TouchableOpacity>  
 
-              <TouchableOpacity style={styles.bottom} >
+              <TouchableOpacity 
+              style={styles.bottom}
+              onPress={ () => AddFinance() }
+              >
                   <MaterialCommunityIcons name="cash-plus" size={40} color="#BA68C8" />
                   <Text style={styles.txtBottom}>ADICIONAR DESPESAS</Text>
               </TouchableOpacity>   

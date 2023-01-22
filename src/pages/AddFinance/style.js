@@ -13,7 +13,9 @@ export const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         borderWidth: 1,
-        borderBottomColor: '#BA68C8'
+        borderBottomColor: '#BA68C8',
+        borderRadius: 12,
+        height: 100,
     },
     title:{
         fontSize: 22,
@@ -21,7 +23,7 @@ export const styles = StyleSheet.create({
         color: '#DDD',
     },
     addBnt:{
-        backgroundColor: '#BA68C8',
+        //backgroundColor: '#BA68C8',
         width: 55,
         height: 55,
         borderRadius: 12,
@@ -29,7 +31,7 @@ export const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     backBnt:{
-        backgroundColor: '#BA68C8',
+        //backgroundColor: '#BA68C8',
         width: 55,
         height: 55,
         borderRadius: 12,
@@ -37,19 +39,45 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     content:{
+        flex: 1,
+        borderTopLeftRadius: 12,
+        borderTopRightRadius: 12,
+        backgroundColor: '#FFF',
+        paddingStart: 8,
+        paddingEnd: 8,
+        paddingTop: 10,
         alignItems: 'center',
-        marginTop: 80,
-    },  
+    }, 
+    inputView:{
+        height: 100,
+        paddingStart: 14,
+        paddingEnd: 14,
+        //backgroundColor: '#DDD',
+        marginTop: 10,
+        marginBottom: 10,
+    }, 
     input:{
         //backgroundColor: '#DDD',
         width: 380,
-        height: 40,
+        height: 60,
         padding: 10,
         marginTop: 21,
         borderRadius: 12,
         borderWidth: 1,
         borderBottomColor: '#BA68C8',
         color: '#FFF'
+    },  
+    inputContent:{
+        //backgroundColor: '#DDD',
+        width: 380,
+        height: 60,
+        padding: 10,
+        marginTop: 21,
+        borderRadius: 12,
+        borderWidth: 1,
+        borderColor: '#FFF',
+        borderBottomColor: '#BA68C8',
+        color: 'black'
     },  
     category:{
         padding: 14,
@@ -75,5 +103,16 @@ export const styles = StyleSheet.create({
         fontSize: 22,
         fontWeight: 'bold',
         color: '#FFF'
+    },
+    status:{
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    boxStatus:{
+        margin: 10,
+        backgroundColor: '#D9D9D9',
+        padding: 8,
+        borderRadius: 12,
     },
 });

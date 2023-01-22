@@ -15,10 +15,15 @@ export default function Finance() {
     const uid = user.uid;
     const casa = user.casa;
     const [extrato, setExtrato] = useState([]);
+    const [total, setTotal] = useState(0);
+    const [saldo, setSaldo] = useState(0);
+    const [gasto, setGasto] = useState(0);
+    
 
     useEffect(()=>{
 
         async function loadDate(){
+            
             await firebase.database().ref('Finance').child(casa).on('value', (snap) => {
                 setExtrato([]);
     
@@ -34,11 +39,22 @@ export default function Finance() {
                     setExtrato(oldArray => [...oldArray, list].reverse());
                 })
             })
+
+            
+
+            await firebase.database().ref('usuarios').child(uid).on('value', (snap) => {
+                setSaldo(snap.val().saldo);
+                setGasto(snap.val().gasto);
+                setTotal(snap.val().total);               
+                
+            })
+            
         }
         loadDate();
+        
+        
 
-    },[])
-
+    },[]);
 
  return (
    <View  style={styles.container}>
@@ -51,23 +67,26 @@ export default function Finance() {
                     TOTAL
                 </Text>
                 <Text style={styles.subTitle}>
-                    R$100,00
+                R$ {total.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}
                 </Text>
             </View>
         </View>
-        <Balance  />
+        <Balance saldo={ saldo } gasto={ gasto } />
 
         <Text style={{ color: 'black', fontSize: 22, padding: 14 }} >
             Últimas movimentações
         </Text>
 
-        <FlatList
-            style={styles.list}
-            data={extrato}
-            keyExtractor={ (item) => item.key}
-            showsVerticalScrollIndicator={false}
-            renderItem={ ({item}) => <Moviments data={item} /> }
-        />
+        <View style={styles.listView}>
+            <FlatList
+                style={styles.list}
+                data={extrato}
+                keyExtractor={ (item) => item.key}
+                showsVerticalScrollIndicator={false}
+                renderItem={ ({item}) => <Moviments data={item} /> }
+            />
+        </View>
+
 
    </View>
   );

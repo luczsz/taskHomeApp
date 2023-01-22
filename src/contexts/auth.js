@@ -43,7 +43,9 @@ export default function AuthProvider( {children} ){
                     uid: uid,
                     nome: snap.val().nome,
                     email: value.user.email,
-                    casa: snap.val().casa
+                    casa: snap.val().casa,
+                    saldo: snap.val().saldo,
+                    gasto: snap.val().gasto,
                 };
 
                 setUser(data);
@@ -70,6 +72,8 @@ export default function AuthProvider( {children} ){
 
             await firebase.database().ref('usuarios').child(uid).set({
                 pontos: 0,
+                saldo: 0,
+                gasto: 0,
                 nome: nome,
                 casa: casa
           })
@@ -78,7 +82,9 @@ export default function AuthProvider( {children} ){
                     uid: uid,
                     nome: nome,
                     casa: casa,
-                    email: value.user.email
+                    email: value.user.email,
+                    saldo: 0,
+                    gasto: 0,
                 };
                 setUser(data);
                 storageUser(data);
