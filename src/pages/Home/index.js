@@ -62,30 +62,6 @@ export default function Home() {
     loadPontos();
   },[])
 
-  function Semana(){
-    if (newDate === 'Sunday') {
-        setDate('Domingo')
-    }
-    if (newDate === 'Monday') {
-        setDate('Segunda')
-    }
-    if (newDate === 'Tuesday') {
-        setDate('Terça')  
-    }
-    if (newDate === 'Wednesday') {
-        setDate('Quarta')
-    }
-    if (newDate === 'Thursday') {
-        setDate('Quinta')
-    }
-    if (newDate === 'friday') {
-        setDate('Sexta')
-    }
-    if (newDate === 'Saturday') {
-        setDate('Sábado')
-    }
-  };
-
   function AddTask(){
     navigation.navigate('AddTask');
   };
@@ -95,6 +71,9 @@ export default function Home() {
   function userGo(){
     navigation.navigate('User');
   };
+  function AddCompras(){
+    navigation.navigate('AddCompras');
+  }
 
   async function handleDelete(data){
 
@@ -181,7 +160,10 @@ export default function Home() {
                   <Text style={styles.txtBottom}>ADICIONAR DESPESAS</Text>
               </TouchableOpacity>   
 
-              <TouchableOpacity style={styles.bottom} >
+              <TouchableOpacity 
+              style={styles.bottom}
+              onPress={ () => AddCompras() }
+              >
                   <MaterialCommunityIcons name="shopping" size={40} color="#BA68C8" />
                   <Text style={styles.txtBottom}>LISTAS DE COMPRAS</Text>
               </TouchableOpacity>   

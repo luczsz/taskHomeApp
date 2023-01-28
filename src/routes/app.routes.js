@@ -6,6 +6,7 @@ import { Ionicons, MaterialIcons, AntDesign } from '@expo/vector-icons';
 import Home from '../pages/Home';
 import AddTask from '../pages/AddTask';
 import AddFinance from '../pages/AddFinance';
+import AddCompras from '../pages/AddCompras';
 import AllTasks from '../pages/AllTasks/index.';
 import UserCont from '../pages/UserCont/index.';
 import Finance from '../pages/Finance';
@@ -115,6 +116,13 @@ export default function AppRoutes(){
             <AppStack.Screen
                 name='User'
                 component={UserCont}
+                options={{
+                    headerShown: false,
+                }}
+            />
+            <AppStack.Screen
+                name='AddCompras'
+                component={AddCompras}
                 options={{
                     headerShown: false,
                 }}
