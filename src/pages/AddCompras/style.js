@@ -29,8 +29,15 @@ export const styles = StyleSheet.create({
         backgroundColor: 'black',
         width: 44,
         height: 44,
+        marginRight: 12,
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 12,
     },
+    listView:{
+        marginStart: 14,
+        marginEnd: 14,
+        backgroundColor: '#DDD',
+        alignItems: 'center',
+    }
 })
