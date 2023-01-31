@@ -19,7 +19,7 @@ export default function ListasCompras({data, upload, del }) {
           style={styles.bottom}
           onPress={ () => upload(data) }
           >
-           
+           <MaterialIcons name="update" size={24} color="black" />
         </TouchableOpacity>
         
         <TouchableOpacity 
