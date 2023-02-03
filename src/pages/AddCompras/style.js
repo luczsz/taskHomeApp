@@ -32,11 +32,7 @@ export const styles = StyleSheet.create({
         justifyContent: 'space-around'  */
     },
     contentInput:{
-        /* backgroundColor: 'black',
-        marginStart: 12,
-        marginEnd: 12,
-        paddingEnd: 12,
-        paddingStart: 12, */
+        //backgroundColor: 'black',
         height: 80,
         marginTop: 20,
         flexDirection: 'row',
@@ -45,6 +41,7 @@ export const styles = StyleSheet.create({
     },
     input:{
         //flex: 1,
+        width: '100%',
         backgroundColor: '#FFF',
         height: 60,
         padding: 14,

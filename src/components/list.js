@@ -96,4 +96,31 @@ export const list = [
         date: '20/10/2022',
         type: 0 // despesas
     },
+  ];
+
+
+
+export const compras = [
+    {
+        id: 1,
+        label: 'Conjunto de copos',
+        value: '16,90',
+        date: '16/10/2022',
+        type: 'Cozinha'
+    },
+    {
+        id: 2,
+        label: 'Caixa de som',
+        value: '162,90',
+        date: '16/10/2022',
+        type: 'Sala'
+    },
+    {
+        id: 3,
+        label: 'Kit garrafas',
+        value: '22,90',
+        date: '16/10/2022',
+        type: 'Cozinha'
+    },
+   
   ]

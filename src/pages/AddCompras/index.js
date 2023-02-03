@@ -37,6 +37,7 @@ export default function AddCompras() {
         <View style={styles.content}>
 
             <View style={styles.inputView}>
+                
                 <TextInput
                     placeholder='Insira aqui o nome'
                     style={styles.input}
@@ -48,7 +49,7 @@ export default function AddCompras() {
                         style={styles.inputCont}
                     />
                     <TextInput
-                        placeholder='Valor: 10,00'
+                        placeholder='Valor: 20,00'
                         style={styles.inputCont}
                     />
                 </View>

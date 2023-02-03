@@ -10,6 +10,7 @@ import AddCompras from '../pages/AddCompras';
 import AllTasks from '../pages/AllTasks/index.';
 import UserCont from '../pages/UserCont/index.';
 import Finance from '../pages/Finance';
+import Compras from '../pages/Compras';
 
 export default function AppRoutes(){
     
@@ -74,6 +75,20 @@ export default function AppRoutes(){
                             return <MaterialIcons name="attach-money" size={24} color="#BA68C8" />
                         }
                             return <MaterialIcons name="attach-money" size={24} color="#DDD" />
+    
+                        }
+                    }}
+                />
+                <AppTabs.Screen
+                    name='Compras'
+                    component={Compras}
+                    options={{
+                        headerShown: false,
+                        tabBarIcon: ({ color, size, focused}) => {
+                            if(focused){
+                            return <MaterialIcons name="shopping-cart" size={24} color="#BA68C8" />
+                        }
+                            return <MaterialIcons name="shopping-cart" size={24} color="#DDD" />
     
                         }
                     }}
